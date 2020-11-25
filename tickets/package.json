@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@armando1514-ticket-system/common": "^1.0.4",
+    "@armando1514-ticket-system/common": "^1.0.5",
     "@types/cookie-session": "^2.0.41",
     "@types/express": "^4.17.9",
     "@types/jsonwebtoken": "^8.5.0",

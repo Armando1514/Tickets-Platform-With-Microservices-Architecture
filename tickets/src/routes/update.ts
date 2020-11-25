@@ -7,7 +7,10 @@ import {
     NotAuthorizedError
 } from '@armando1514-ticket-system/common';
 
+import { TicketUpdatedPublisher} from '../events/publishers/ticket-updated-publisher';
+
 import { Ticket } from '../models/ticket';
+import { natsWrapper } from '../nats-wrapper';
 
 const router = express.Router();
 
@@ -40,6 +43,12 @@ validateRequest,
     });
 
     await ticket.save();
+    new TicketUpdatedPublisher(natsWrapper.client).publish({
+        id: ticket.id,
+        title: ticket.title,
+        price: ticket.price,
+        userId: ticket.userId
+    });
 
     res.send(ticket);
 });

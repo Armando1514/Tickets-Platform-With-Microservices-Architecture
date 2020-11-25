@@ -1,6 +1,9 @@
 import request from 'supertest'
 import { app } from '../../app';
 import { Ticket } from '../../models/ticket';
+// importing the real nats-wrapper, that is translated with the fake one;
+import {natsWrapper} from '../../nats-wrapper';
+
 
 it('Has a route handler listening to /api/tickets for post requests', async() => {
     const response = await request(app)
@@ -73,7 +76,7 @@ it('Creates a ticket with valid inputs', async() => {
         .post('/api/tickets')
         .set('Cookie', global.signin())
         .send({
-            title: "esdadadsa",
+            title: "titleValid",
             price: 20
         })
         .expect(201);
@@ -82,4 +85,19 @@ it('Creates a ticket with valid inputs', async() => {
     expect(tickets.length).toEqual(1);
     expect(tickets[0].price).toEqual(20);
 
+});
+
+it('publishes an event', async () => {
+    await request(app)
+    .post('/api/tickets')
+    .set('Cookie', global.signin())
+    .send({
+        title: "titleValid",
+        price: 20
+    })
+    .expect(201);
+
+    // I am sure that this function is called
+    // jest.fn help to use expectation on function
+    expect(natsWrapper.client.publish).toHaveBeenCalled();
 });
