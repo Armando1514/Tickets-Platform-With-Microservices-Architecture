@@ -32,3 +32,27 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
+    - image: nextwas/orders
+      context: orders
+      docker: 
+        dockerfile: Dockerfile 
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: nextwas/expiration
+      context: expiration
+      docker: 
+        dockerfile: Dockerfile 
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: nextwas/payments
+      context: payments
+      docker: 
+        dockerfile: Dockerfile 
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
