@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: orders-depl 
+  name: orders-depl
 spec:
   replicas: 1
   selector:
@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: orders
-          image: nextwas/orders
-          env: 
+          image: stephengrider/orders
+          env:
             - name: NATS_CLIENT_ID
               valueFrom:
                 fieldRef:
@@ -27,16 +27,17 @@ spec:
             - name: MONGO_URI
               value: 'mongodb://orders-mongo-srv:27017/orders'
             - name: JWT_KEY
-              valueFrom: 
+              valueFrom:
                 secretKeyRef:
-                  name: jwt-secret              key: JWT_KEY
+                  name: jwt-secret
+                  key: JWT_KEY
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: orders-srv 
+  name: orders-srv
 spec:
-  selector: 
+  selector:
     app: orders
   ports:
     - name: orders
