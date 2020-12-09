@@ -10,6 +10,7 @@ import { signoutRouter } from './routes/signout';
 import { signupRouter } from './routes/signup';
 import { errorHandler, NotFoundError } from '@armando1514-ticket-system/common';
 
+
 const app = express();
 app.set('trust proxy', true);
 
