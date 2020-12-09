@@ -1,4 +1,4 @@
-name: deploy-auth
+name: deploy-manifest
 
 on:
   push:
