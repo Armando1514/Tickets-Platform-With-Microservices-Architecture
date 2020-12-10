@@ -1,6 +1,6 @@
 
 <p align="center"> 
-  <img src ="" />
+  <img src ="./ticket-logo.jpg" />
 </p>
 
 Javascript based microservices architecture for the creation of a platform for the purchase and creation of tickets.
