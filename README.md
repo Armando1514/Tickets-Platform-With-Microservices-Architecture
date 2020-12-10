@@ -1,6 +1,6 @@
 
 <p align="center"> 
-  <img src ="https://ferrara.link/img/microservices-ticket-system2020/ticketlogo.jpg" />
+  <img src ="http://ferrara.link/img/microservices-ticket-system2020/ticketlogo.jpg" />
 </p>
 
 Javascript based microservices architecture for the creation of a platform for the purchase and creation of tickets.
@@ -15,7 +15,7 @@ Javascript based microservices architecture for the creation of a platform for t
 
 ### Architecture
 
-![architecture](https://ferrara.link/img/microservices-ticket-system2020/architecture-microservices.png)
+![architecture](http://ferrara.link/img/microservices-ticket-system2020/architecture-microservices.png)
 
 ### Technologies
 
